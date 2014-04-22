@@ -23,6 +23,7 @@ class PrintToWriter:
        	self.model = self.desktop.getCurrentComponent()
        	self.text = self.model.Text
        	self.cursor = self.text.createTextCursor()
+        self.tableStyle("BLUE") #default color scheme is Blue
 
 
        def insertTextIntoCell(self, table, cellName, text, color ):
@@ -49,11 +50,11 @@ class PrintToWriter:
            self.text.insertTextContent( self.cursor, self.table, 0 )
            rows = self.table.Rows	 
            self.table.setPropertyValue( "BackTransparent", uno.Bool(0) )
-           self.table.setPropertyValue( "BackColor", 13421823 )
+           self.table.setPropertyValue( "BackColor", self.TablebackColor )
            row = rows.getByIndex(0)
            row.setPropertyValue( "BackTransparent", uno.Bool(0) )
            row.setPropertyValue( "BackColor", 6710932 )
-           textColor = 16777215
+           textColor = self.HeadingRowColor
            self.text.insertControlCharacter(self.cursor, PARAGRAPH_BREAK, 0)
            index = "A1"
            for heading in headings:
@@ -68,6 +69,8 @@ class PrintToWriter:
 
        def insertParaBreak(self):
           self.text.insertControlCharacter(self.cursor, PARAGRAPH_BREAK, 0)
-        
 
-        
+       def tableStyle(self, color):
+           if color == "BLUE":
+              self.TablebackColor = 13421823
+              self.HeadingRowColor = 16777215
