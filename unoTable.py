@@ -30,10 +30,10 @@ class PrintToWriter:
            cursor = tableText.createTextCursor()
            cursor.setPropertyValue( "CharColor", color )
            tableText.setString( str(text) )
-           if (str(text).startswith("http")):
+           if (str(text).strip().startswith("http")):
            	cursor.gotoStart(False)
            	cursor.gotoEnd(True)
-           	cursor.HyperLinkURL = str(text)
+           	cursor.HyperLinkURL = str(text).strip()
        
        
        def insertTextInRow(self, rowIndex, textList):
