@@ -36,7 +36,7 @@ def getEpicName(issue):
 
 def getFilterData(filterId):
 	global FilterName;
-	sQuery = sQueryConfig + " https://synerzip.atlassian.net/rest/api/2/filter/" + "11302"
+	sQuery = sQueryConfig + " https://synerzip.atlassian.net/rest/api/2/filter/" + filterId
 	process = subprocess.Popen([sQuery], shell=True,stdout=subprocess.PIPE)
 	out, err = process.communicate()
 	jData = json.loads(out.decode("utf-8"))
