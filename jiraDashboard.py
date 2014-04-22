@@ -34,6 +34,16 @@ def getFilterName(data):
 def getEpicName(issue):
 	return issue['fields']['customfield_10003']
 
+def getIssueLinks(issue):
+	links = []
+	jsonLinks = issue['fields']['issuelinks']
+	for jsonLink in jsonLinks:
+		if "outwardIssue" in jsonLink:
+		    links.append(jsonLink['outwardIssue']['key'])
+		elif "inwardIssue" in jsonLink:
+		    links.append(jsonLink['inwardIssue']['key'])
+	return links
+
 def getFilterData(filterId):
 	global FilterName;
 	sQuery = sQueryConfig + " https://synerzip.atlassian.net/rest/api/2/filter/" + filterId
