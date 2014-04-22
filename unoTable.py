@@ -59,8 +59,8 @@ class PrintToWriter:
            self.table.setPropertyValue( "BackColor", self.TablebackColor )
            row = rows.getByIndex(0)
            row.setPropertyValue( "BackTransparent", uno.Bool(0) )
-           row.setPropertyValue( "BackColor", 6710932 )
-           textColor = self.HeadingRowColor
+           row.setPropertyValue( "BackColor", self.HeadingRowColor )
+           textColor = 16777215
            self.text.insertControlCharacter(self.cursor, PARAGRAPH_BREAK, 0)
            index = "A1"
            for heading in headings:
@@ -77,6 +77,26 @@ class PrintToWriter:
           self.text.insertControlCharacter(self.cursor, PARAGRAPH_BREAK, 0)
 
        def tableStyle(self, color):
+           if color == "PURPLE":
+              self.TablebackColor = int("D9D4DC", 16)
+              self.HeadingRowColor = int("4B0082", 16)
+
+           if color == "GREEN":
+              self.TablebackColor = int("CBF5D0", 16)
+              self.HeadingRowColor = int("006400", 16)
+
+           if color == "RED":
+              self.TablebackColor = int("f5deb3", 16)
+              self.HeadingRowColor = int("b22222", 16)
+
+           if color == "ORANGE":
+              self.TablebackColor = int("ffdab9", 16)
+              self.HeadingRowColor = int("ff4500", 16)
+
            if color == "BLUE":
-              self.TablebackColor = 13421823
-              self.HeadingRowColor = 16777215
+              self.TablebackColor = int("D3DFEB", 16)
+              self.HeadingRowColor = int("145BA3", 16)
+
+           if color == "GREY":
+              self.TablebackColor = int("d3d3d3", 16)
+              self.HeadingRowColor = int("696969", 16)
