@@ -31,11 +31,17 @@ class PrintToWriter:
            cursor = tableText.createTextCursor()
            cursor.setPropertyValue( "CharColor", color )
            tableText.setString( str(text) )
+
            if (str(text).strip().startswith("http")):
            	cursor.gotoStart(False)
            	cursor.gotoEnd(True)
            	cursor.HyperLinkURL = str(text).strip()
-       
+
+           elif (str(text).strip().startswith("LIB-")):
+           	cursor.gotoStart(False)
+           	cursor.gotoEnd(True)
+           	cursor.HyperLinkURL = "https://synerzip.atlassian.net/browse/" + str(text).strip()
+
        
        def insertTextInRow(self, rowIndex, textList):
        	    index = "A" + str(rowIndex)
