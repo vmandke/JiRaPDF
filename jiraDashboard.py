@@ -1,7 +1,7 @@
 import json
 import subprocess
 import unoTable
-
+import os
 
 username = ""
 password = ""
@@ -10,7 +10,7 @@ FilterName = ""
 
 def readConfig():
 	global username, password, sQueryConfig
-	jdata=open('/home/vinaya/JIRA-pdf/config.json')
+	jdata=open( os.path.dirname(os.path.realpath(__file__)) + '/config.json')
 	jConfig = json.load(jdata)	
 	username = jConfig['username']
 	password = jConfig['password']
