@@ -69,6 +69,7 @@ LO = unoTable.PrintToWriter()
 
 #DEV :: Code Patch Review Pending
 filterData = getFilterData("11302")
+LO.tableStyle("GREY")
 LO.insertHeading( FilterName )
 issueList = filterData['issues']
 headers = ["Key","Summary","Bugzilla Link", "Gerrit Link"]
@@ -85,6 +86,7 @@ for i in  range(0,len(issueList)):
 
 #DEV :: Open and Reopened
 filterData = getFilterData("11407")
+LO.tableStyle("RED")
 LO.insertHeading( FilterName )
 issueList = filterData['issues']
 headers = ["Epic/Theme","Key","Summary"]
@@ -97,8 +99,19 @@ for i in  range(0,len(issueList)):
 	rowIndex = rowIndex + 1
 
 
-
-
+#DEV :: Code Patches Merged 11301 GREEN
+filterData = getFilterData("11301")
+LO.tableStyle("GREEN")
+LO.insertHeading( FilterName )
+issueList = filterData['issues']
+headers = ["Key","Summary"]
+LO.initTable(len(issueList),len(headers), headers)
+rowIndex = 2
+for i in  range(0,len(issueList)):
+	issue = issueList[i];
+	dataList = [getKey(issue), getSummary(issue)]
+	LO.insertTextInRow(rowIndex, dataList)
+	rowIndex = rowIndex + 1
 
 
 
