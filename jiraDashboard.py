@@ -31,6 +31,7 @@ def getBugzillaLink(issue):
 
 def getFilterName(data):
 	return FilterName
+
 def getEpicName(issue):
 	return issue['fields']['customfield_10003']
 
@@ -43,6 +44,23 @@ def getIssueLinks(issue):
 		elif "inwardIssue" in jsonLink:
 		    links.append(jsonLink['inwardIssue']['key'])
 	return links
+
+def getDataListFromHeaders(issue,headers):
+	dataList = []
+	for header in headers:
+		if header == "Key":
+			dataList.append(getKey(issue))
+		elif header == "Summary":
+			dataList.append(getSummary(issue))
+		elif header == "Bugzilla Link":
+			dataList.append(getBugzillaLink(issue))
+		elif header == "Gerrit Link":
+			dataList.append(getPatchLink(issue))
+		elif header == "Epic/Theme":
+			dataList.append(getEpicName(issue))
+		elif header == "Links":
+			dataList.append(getIssueLinks(issue))
+	return dataList
 
 def getFilterData(filterId):
 	global FilterName;
@@ -77,7 +95,7 @@ LO.initTable(len(issueList), len(headers), headers)
 rowIndex = 2
 for i in  range(0,len(issueList)):
 	issue = issueList[i];
-	dataList = [getKey(issue), getSummary(issue), getBugzillaLink(issue), getPatchLink(issue)]
+	dataList = getDataListFromHeaders(issue,headers)
 	LO.insertTextInRow(rowIndex, dataList)
 	rowIndex = rowIndex + 1
 
@@ -94,7 +112,7 @@ LO.initTable(len(issueList),len(headers), headers)
 rowIndex = 2
 for i in  range(0,len(issueList)):
 	issue = issueList[i];
-	dataList = [getEpicName(issue), getKey(issue), getSummary(issue)]
+	dataList = getDataListFromHeaders(issue,headers)
 	LO.insertTextInRow(rowIndex, dataList)
 	rowIndex = rowIndex + 1
 
@@ -109,7 +127,7 @@ LO.initTable(len(issueList),len(headers), headers)
 rowIndex = 2
 for i in  range(0,len(issueList)):
 	issue = issueList[i];
-	dataList = [getKey(issue), getSummary(issue)]
+	dataList = getDataListFromHeaders(issue,headers)
 	LO.insertTextInRow(rowIndex, dataList)
 	rowIndex = rowIndex + 1
 
