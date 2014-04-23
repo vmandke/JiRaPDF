@@ -78,6 +78,19 @@ def getFilterData(filterId):
 	data = json.loads((out).decode("utf-8"))
 	return data
    
+def processFilter(filterId, headers, tableStyleColor):
+	filterData = getFilterData(filterId)
+	LO.tableStyle(tableStyleColor)
+	LO.insertHeading( FilterName )
+	issueList = filterData['issues']
+	LO.initTable(len(issueList), len(headers), headers)
+	rowIndex = 2
+	for i in  range(0,len(issueList)):
+		issue = issueList[i];
+		dataList = getDataListFromHeaders(issue,headers)
+		LO.insertTextInRow(rowIndex, dataList)
+		rowIndex = rowIndex + 1
+
 
 
 readConfig()
@@ -86,50 +99,25 @@ LO = unoTable.PrintToWriter()
 
 
 #DEV :: Code Patch Review Pending
-filterData = getFilterData("11302")
-LO.tableStyle("GREY")
-LO.insertHeading( FilterName )
-issueList = filterData['issues']
+filterId = "11302"
 headers = ["Key","Summary","Bugzilla Link", "Gerrit Link"]
-LO.initTable(len(issueList), len(headers), headers)
-rowIndex = 2
-for i in  range(0,len(issueList)):
-	issue = issueList[i];
-	dataList = getDataListFromHeaders(issue,headers)
-	LO.insertTextInRow(rowIndex, dataList)
-	rowIndex = rowIndex + 1
-
+tableStyleColor = "GREY"
+processFilter(filterId, headers, tableStyleColor)
 
 
 
 #DEV :: Open and Reopened
-filterData = getFilterData("11407")
-LO.tableStyle("RED")
-LO.insertHeading( FilterName )
-issueList = filterData['issues']
+filterId = "11407"
 headers = ["Epic/Theme","Key","Summary"]
-LO.initTable(len(issueList),len(headers), headers)
-rowIndex = 2
-for i in  range(0,len(issueList)):
-	issue = issueList[i];
-	dataList = getDataListFromHeaders(issue,headers)
-	LO.insertTextInRow(rowIndex, dataList)
-	rowIndex = rowIndex + 1
+tableStyleColor = "RED"
+processFilter(filterId, headers, tableStyleColor)
+
 
 
 #DEV :: Code Patches Merged 11301 GREEN
-filterData = getFilterData("11301")
-LO.tableStyle("GREEN")
-LO.insertHeading( FilterName )
-issueList = filterData['issues']
+filterId = "11301"
 headers = ["Key","Summary"]
-LO.initTable(len(issueList),len(headers), headers)
-rowIndex = 2
-for i in  range(0,len(issueList)):
-	issue = issueList[i];
-	dataList = getDataListFromHeaders(issue,headers)
-	LO.insertTextInRow(rowIndex, dataList)
-	rowIndex = rowIndex + 1
-
+tableStyleColor = "GREEN"
+processFilter(filterId, headers, tableStyleColor)
 
 
