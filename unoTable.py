@@ -81,22 +81,22 @@ class PrintToWriter:
               self.TablebackColor = int("D9D4DC", 16)
               self.HeadingRowColor = int("4B0082", 16)
 
-           if color == "GREEN":
+           elif color == "GREEN":
               self.TablebackColor = int("CBF5D0", 16)
               self.HeadingRowColor = int("006400", 16)
 
-           if color == "RED":
+           elif color == "RED":
               self.TablebackColor = int("f5deb3", 16)
               self.HeadingRowColor = int("b22222", 16)
 
-           if color == "ORANGE":
+           elif color == "ORANGE":
               self.TablebackColor = int("ffdab9", 16)
               self.HeadingRowColor = int("ff4500", 16)
 
-           if color == "BLUE":
+           elif color == "BLUE":
               self.TablebackColor = int("D3DFEB", 16)
               self.HeadingRowColor = int("145BA3", 16)
 
-           if color == "GREY":
+           elif color == "GREY":
               self.TablebackColor = int("d3d3d3", 16)
               self.HeadingRowColor = int("696969", 16)
