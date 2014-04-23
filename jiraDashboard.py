@@ -111,12 +111,38 @@ readConfig()
 LO = unoTable.PrintToWriter()
 
 
+
+#DEV :: Code Patches Merged 11301 GREEN
+filterId = "11301"
+headers = ["Priority", "Key","Summary"]
+tableStyleColor = "GREEN"
+processFilter(filterId, headers, tableStyleColor)
+
+
 #DEV :: Code Patch Review Pending
 filterId = "11302"
 headers = ["Priority","Key","Summary","Bugzilla Link", "Gerrit Link"]
 tableStyleColor = "GREY"
 processFilter(filterId, headers, tableStyleColor)
 
+
+#DEV :: Code Patch Review Comments 11412 ORANGE
+filterId = "11412"
+headers = ["Priority","Key","Summary","Bugzilla Link", "Gerrit Link"]
+tableStyleColor = "ORANGE"
+processFilter(filterId, headers, tableStyleColor)
+
+#DEV :: Fixed 11402 GREEN
+filterId = "11402"
+headers = ["Priority", "Epic/Theme","Key","Summary"]
+tableStyleColor = "GREEN"
+processFilter(filterId, headers, tableStyleColor)
+
+#DEV :: Unassigned 11208 PURPLE
+filterId = "11208"
+headers = ["Priority", "Epic/Theme","Key","Summary"]
+tableStyleColor = "PURPLE"
+processFilter(filterId, headers, tableStyleColor)
 
 
 #DEV :: Open and Reopened
@@ -126,11 +152,18 @@ tableStyleColor = "RED"
 processFilter(filterId, headers, tableStyleColor)
 
 
+#DEV :: In Progress 11406 ORANGE
+filterId = "11406"
+headers = ["Priority", "Epic/Theme","Key","Summary"]
+tableStyleColor = "ORANGE"
+processFilter(filterId, headers, tableStyleColor)
 
-#DEV :: Code Patches Merged 11301 GREEN
-filterId = "11301"
-headers = ["Priority", "Key","Summary"]
+
+#DEV :: Non Reproducible 11404 GREEN
+filterId = "11404"
+headers = ["Key"]
 tableStyleColor = "GREEN"
 processFilter(filterId, headers, tableStyleColor)
+
 
 
