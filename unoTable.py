@@ -67,8 +67,8 @@ class PrintToWriter:
        	       self.insertTextIntoCell( self.table, index, heading, textColor )
        	       index = chr(ord(index[0]) + 1) + str(1)
        
-       def insertHeading(self,string):
-       	   self.cursor.ParaStyleName = "Heading 3"
+       def insertHeading(self,string, paraStyleName):
+       	   self.cursor.ParaStyleName = paraStyleName
        	   self.text.insertString(self.cursor, str(string), 0)
            self.text.insertControlCharacter(self.cursor, PARAGRAPH_BREAK, 0)
        	   self.cursor.ParaStyleName = "Standard"

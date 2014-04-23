@@ -91,15 +91,18 @@ def getFilterData(filterId):
 def processFilter(filterId, headers, tableStyleColor):
 	filterData = getFilterData(filterId)
 	LO.tableStyle(tableStyleColor)
-	LO.insertHeading( FilterName )
+	LO.insertHeading( FilterName, "Heading 3" )
 	issueList = filterData['issues']
 	LO.initTable(len(issueList), len(headers), headers)
 	rowIndex = 2
-	for i in  range(0,len(issueList)):
-		issue = issueList[i];
-		dataList = getDataListFromHeaders(issue,headers)
-		LO.insertTextInRow(rowIndex, dataList)
-		rowIndex = rowIndex + 1
+	if (len(issueList) == 0):
+		LO.insertHeading( "No matching issues found.", "Standard" )
+	else:
+		for i in  range(0,len(issueList)):
+			issue = issueList[i];
+			dataList = getDataListFromHeaders(issue,headers)
+			LO.insertTextInRow(rowIndex, dataList)
+			rowIndex = rowIndex + 1
 
 
 
