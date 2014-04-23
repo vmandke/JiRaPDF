@@ -35,6 +35,12 @@ def getFilterName(data):
 def getEpicName(issue):
 	return issue['fields']['customfield_10003']
 
+def getStatus(issue):
+	return issue['fields']['status']['name']
+
+def getPriority(issue):
+	return issue['fields']['priority']['name']
+
 def getIssueLinks(issue):
 	links = []
 	jsonLinks = issue['fields']['issuelinks']
@@ -60,6 +66,10 @@ def getDataListFromHeaders(issue,headers):
 			dataList.append(getEpicName(issue))
 		elif header == "Links":
 			dataList.append(getIssueLinks(issue))
+		elif header == "Status":
+			dataList.append(getStatus(issue))
+		elif header == "Priority":
+			dataList.append(getPriority(issue))
 	return dataList
 
 def getFilterData(filterId):
@@ -100,7 +110,7 @@ LO = unoTable.PrintToWriter()
 
 #DEV :: Code Patch Review Pending
 filterId = "11302"
-headers = ["Key","Summary","Bugzilla Link", "Gerrit Link"]
+headers = ["Priority","Key","Summary","Bugzilla Link", "Gerrit Link"]
 tableStyleColor = "GREY"
 processFilter(filterId, headers, tableStyleColor)
 
@@ -108,7 +118,7 @@ processFilter(filterId, headers, tableStyleColor)
 
 #DEV :: Open and Reopened
 filterId = "11407"
-headers = ["Epic/Theme","Key","Summary"]
+headers = ["Priority", "Epic/Theme","Key","Summary"]
 tableStyleColor = "RED"
 processFilter(filterId, headers, tableStyleColor)
 
@@ -116,7 +126,7 @@ processFilter(filterId, headers, tableStyleColor)
 
 #DEV :: Code Patches Merged 11301 GREEN
 filterId = "11301"
-headers = ["Key","Summary"]
+headers = ["Priority", "Key","Summary"]
 tableStyleColor = "GREEN"
 processFilter(filterId, headers, tableStyleColor)
 
