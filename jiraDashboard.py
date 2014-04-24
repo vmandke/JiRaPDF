@@ -186,11 +186,83 @@ tableStyleColor = "ORANGE"
 processFilter(filterId, headers, tableStyleColor)
 
 
+#Visual Roundtrip Comparison Reports PURPLE 11409
+filterId = "11409"
+headers = ["Key","Summary", "DocumentLink"]
+tableStyleColor = "PURPLE"
+processFilter(filterId, headers, tableStyleColor)
+
+
+#Visual Comparison Improvements PURPLE 11415
+filterId = "11415"
+headers = ["Key", "Summary", "Status"]
+tableStyleColor = "PURPLE"
+processFilter(filterId, headers, tableStyleColor)
+
+
+#DEV :: Split ORANGE 11303
+filterId = "11303"
+headers = ["Key", "Links"]
+tableStyleColor = "ORANGE"
+processFilter(filterId, headers, tableStyleColor)
+
+
+#DEV :: Duplicates GREEN  11304
+filterId = "11304"
+headers = ["Key", "Links"]
+tableStyleColor = "GREEN"
+processFilter(filterId, headers, tableStyleColor)
+
+
 #DEV :: Non Reproducible 11404 GREEN
 filterId = "11404"
 headers = ["Key"]
 tableStyleColor = "GREEN"
 processFilter(filterId, headers, tableStyleColor)
+
+
+#DEV :: Won't Fix GREEN 11405
+#filterId = "11405"
+#headers = ["Key"]
+#tableStyleColor = "GREEN"
+#processFilter(filterId, headers, tableStyleColor)
+
+
+
+#QA :: New Defects RED 11411
+filterId = "11411"
+headers = ["Priority", "Key","Summary"]
+tableStyleColor = "RED"
+processFilter(filterId, headers, tableStyleColor)
+
+
+#QA :: Verified and Closed  GREEN  11410
+filterId = "11410"
+headers = ["Priority", "Key","Summary"]
+tableStyleColor = "GREEN"
+processFilter(filterId, headers, tableStyleColor)
+
+
+#QA :: Verification Failed ORANGE 11414
+filterId = "11414"
+headers = ["Priority", "Key","Summary"]
+tableStyleColor = "ORANGE"
+processFilter(filterId, headers, tableStyleColor)
+
+
+#FET Execution Reports  BLUE 11413
+filterId = "11413"
+headers = ["Key","Summary", "DocumentLink"]
+tableStyleColor = "BLUE"
+processFilter(filterId, headers, tableStyleColor)
+
+
+#FET Improvements BLUE 11416
+filterId = "11416"
+headers = ["Key","Summary", "DocumentLink"]
+tableStyleColor = "BLUE"
+processFilter(filterId, headers, tableStyleColor)
+
 
 
 
