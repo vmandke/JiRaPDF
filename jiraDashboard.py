@@ -29,6 +29,13 @@ def getPatchLink(issue):
 def getBugzillaLink(issue):
 	return issue['fields']['customfield_10100']
 
+def getAssignee(issue):
+	return issue['fields']['assignee']['displayName']
+
+def getResolution(issue):
+	return "Unresolved" if (issue['fields']['resolution'] is None) \
+	                    else issue['fields']['resolution']['name']
+
 def getFilterName(data):
 	return FilterName
 
@@ -70,6 +77,10 @@ def getDataListFromHeaders(issue,headers):
 			dataList.append(getStatus(issue))
 		elif header == "Priority":
 			dataList.append(getPriority(issue))
+		elif header == "Assignee":
+			dataList.append(getAssignee(issue))
+		elif header == "Resolution":
+			dataList.append(getResolution(issue))
 	return dataList
 
 def getFilterData(filterId):
