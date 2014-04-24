@@ -138,6 +138,12 @@ headers = ["Priority", "Epic/Theme","Key","Summary"]
 tableStyleColor = "GREEN"
 processFilter(filterId, headers, tableStyleColor)
 
+#DEV :: Fixed and Closed GREEN 11403
+filterId = "11403"
+headers = ["Priority", "Epic/Theme","Key","Summary"]
+tableStyleColor = "GREEN"
+processFilter(filterId, headers, tableStyleColor)
+
 #DEV :: Unassigned 11208 PURPLE
 filterId = "11208"
 headers = ["Priority", "Epic/Theme","Key","Summary"]
