@@ -155,9 +155,15 @@ headers = ["Priority", "Epic/Theme","Key","Summary"]
 tableStyleColor = "GREEN"
 processFilter(filterId, headers, tableStyleColor)
 
+#QA :: Sprint Tasks GREY 11408
+filterId = "11408"
+headers = ["Priority","Key","Summary", "Status", "Resolution", "Assignee"]
+tableStyleColor = "GREY"
+processFilter(filterId, headers, tableStyleColor)
+
 #DEV :: Unassigned 11208 PURPLE
 filterId = "11208"
-headers = ["Priority", "Epic/Theme","Key","Summary"]
+headers = ["Priority", "Epic/Theme","Key","Summary", "Status"]
 tableStyleColor = "PURPLE"
 processFilter(filterId, headers, tableStyleColor)
 
