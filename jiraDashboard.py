@@ -35,6 +35,8 @@ def getAssignee(issue):
 def getResolution(issue):
 	return "Unresolved" if (issue['fields']['resolution'] is None) \
 	                    else issue['fields']['resolution']['name']
+def getDocumentLink(issue):
+	return issue['fields']['customfield_10401']
 
 def getFilterName(data):
 	return FilterName
@@ -81,6 +83,8 @@ def getDataListFromHeaders(issue,headers):
 			dataList.append(getAssignee(issue))
 		elif header == "Resolution":
 			dataList.append(getResolution(issue))
+		elif header == "DocumentLink":
+			dataList.append(getDocumentLink(issue))
 	return dataList
 
 def getFilterData(filterId):
