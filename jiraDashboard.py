@@ -97,7 +97,7 @@ def getFilterData(filterId):
 	searchUrl = jData['searchUrl']
 	#print searchUrl
 
-	sQuery =  sQueryConfig + " '" + searchUrl + "'"
+	sQuery =  sQueryConfig + " \"" + searchUrl + "\""
 	process = subprocess.Popen([sQuery], shell=True,stdout=subprocess.PIPE)
 	out, err = process.communicate()
 	data = json.loads((out).decode("utf-8"))
@@ -222,10 +222,10 @@ processFilter(filterId, headers, tableStyleColor)
 
 
 #DEV :: Won't Fix GREEN 11405
-#filterId = "11405"
-#headers = ["Key"]
-#tableStyleColor = "GREEN"
-#processFilter(filterId, headers, tableStyleColor)
+filterId = "11405"
+headers = ["Key"]
+tableStyleColor = "GREEN"
+processFilter(filterId, headers, tableStyleColor)
 
 
 
