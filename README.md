@@ -1,0 +1,6 @@
+JiRaPDF
+=======
+This is a script to generate PDF of Jira filters using PyUNO Bridge of LibreOffice...
+Basically a writer file is created which can be saved to PDF
+
+Modify the filters appropriately...
